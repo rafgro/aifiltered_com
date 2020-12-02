@@ -1,0 +1,6 @@
+Called 24h at Monday 7th of September 2020 05:05:02 PM
+14 papers
+0.13782178217822 top score, 0.21589645342243 average score
+Called 24h at Monday 7th of September 2020 05:10:29 PM
+12: 12 reddit, 1 gnews, 2 blogs, 0 papers
+0.14019801980198 top score, 0.21560524783128 average score
