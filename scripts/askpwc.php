@@ -51,7 +51,7 @@ function process_pwc($howold, $parameter, $howmany) {
 		# then take date and check if it's inside the timeline
 		$timestamp = strtotime($date) + 60*60*16;
 		if ( (time() - $timestamp) > $howold ) { continue; }
-		if ( (time() - $timestamp) < (-60*60*12) ) { continue; } # date before today
+		if ( (time() - $timestamp) < (-60*60*12) ) { continue; }  # date before today
 
         # title and link next
         $whereh1 = stripos($cutout, '<h1>');
