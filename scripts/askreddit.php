@@ -12,11 +12,11 @@ $subreddits = [
 	'ml'=>['url'=>'https://www.reddit.com/r/MachineLearning/top/.json?limit=20',
     'record'=>6422, 'top10'=>1760, 'top50'=>912, 'top100'=>658, 'top250'=>450, 'top500'=>320, 'top1000'=>216,
     'manycomments'=>76, 'avgupvote'=>425, 'commbareer'=>33, 'source'=>'r/machinelearning', 'shortsource'=>'r/ML',
-	'minimalupvote'=>10, 'fastrisingperhour'=>10],
+	'minimalupvote'=>10, 'fastrisingperhour'=>10, 'hugediscussion'=>200],
 	'futurology'=>['url'=>'https://www.reddit.com/r/Futurology/search.json?q=ai&restrict_sr=1&sort=top&limit=10',
     'record'=>147000, 'top10'=>81200, 'top50'=>59900, 'top100'=>49000, 'top250'=>36500, 'top500'=>27300, 'top1000'=>19000,
     'manycomments'=>968, 'avgupvote'=>3000, 'commbareer'=>416, 'source'=>'r/futurology', 'shortsource'=>'r/Futurology',
-	'minimalupvote'=>200, 'fastrisingperhour'=>50]
+	'minimalupvote'=>200, 'fastrisingperhour'=>50, 'hugediscussion'=>3000]
 ];
 
 # A subreddit analysis
@@ -55,6 +55,7 @@ function process_subreddit($subname, $scale, $howmany, $topswitch=false) {
 		$comments = $obj->{'data'}->{'children'}[$i]->{'data'}->{'num_comments'};
 		$commentflair = '';
 		if ( $comments > $sub['manycomments'] ) { $commentflair = 'active discussion'; $highlight = true; }
+		if ( $comments > $sub['hugediscussion'] ) { $commentflair = 'huge discussion'; $highlight = true; }
 		$title = $obj->{'data'}->{'children'}[$i]->{'data'}->{'title'};
 		$category = classify($title);
 		$link = 'https://www.reddit.com' . $obj->{'data'}->{'children'}[$i]->{'data'}->{'permalink'};
